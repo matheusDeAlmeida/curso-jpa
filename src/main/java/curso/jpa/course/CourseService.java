@@ -1,4 +1,4 @@
-package curso.jpa.topic;
+package curso.jpa.course;
 
 import java.util.ArrayList;
 //import java.util.Arrays;
@@ -9,31 +9,32 @@ import org.springframework.stereotype.Service;
 
 //business services usually are singletons in spring
 @Service
-public class TopicService{
+public class CourseService{
     
     @Autowired
-    private TopicRepository courseRepository;
+    private CourseRepository courseRepository;
 
     //private ArrayList<Topic> courses = new ArrayList<Topic>(Arrays.asList());
 
-    public List<Topic> getTopics() {
+    public List<Course> getCourses(String topicId) {
         //return this.courses;
-        List<Topic> courses = new ArrayList<>();
+        List<Course> courses = new ArrayList<>();
+        //courseRepository.findByTopicId(topicId).forEach(courses::add);
         courseRepository.findAll().forEach(courses::add);
         return courses;
     }
 
-    public Topic getTopic(String id){
+    public Course getCourse(String id){
         //return courses.stream().filter(t -> t.getId().equals(id)).findFirst().get();
         //return courseRepository.findOne(id);
         return courseRepository.findById(id).get();
     }
 
-	public void addTopic(Topic course) {
+	public void addCourse(Course course) {
         courseRepository.save(course);
 	}
 
-	public void updateTopic(String id, Topic course) {
+	public void updateCourse(Course course) {
         /*for(int i=0; i<courses.size(); i++){
             Topic t = courses.get(i);
             if(t.getId().equals(id)){
@@ -43,7 +44,7 @@ public class TopicService{
         courseRepository.save(course); //save can do both: add and update
 	}
 
-	public void deleteTopic(String id) {
+	public void deleteCourse(String id) {
         //courses.removeIf(t->t.getId().equals(id));
         courseRepository.deleteById(id);
 	}

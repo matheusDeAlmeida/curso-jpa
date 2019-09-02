@@ -1,5 +1,5 @@
 package curso.jpa;
-
+//aula 30
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

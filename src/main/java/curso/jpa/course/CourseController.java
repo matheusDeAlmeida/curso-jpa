@@ -27,7 +27,7 @@ public class CourseController{
     }
 
     //queremos esse método convertido numa função de adição de linhas para a classe TopicService
-    @RequestMapping(method = RequestMethod.POST, value = "/courses/{topicId}/courses/{id}")
+    @RequestMapping(method = RequestMethod.POST, value = "/topics/{topicId}/courses")
     public void addCourse(@RequestBody Course course, @PathVariable String topicId){
         course.setTopic(new Topic(topicId, "", ""));
         courseService.addCourse(course);

@@ -10,5 +10,5 @@ public interface CourseRepository extends CrudRepository<Course, String> {
     //updateTopic(Topic t)
     //deleteTopic(String id)
     List<Course> findByTopicId(String name); //usando "findBy"+variável, o spring jpa implementa o método sozinho
-    List<Course> findByDescription(String name);
+    //List<Course> findByDescription(String name);
 }
